@@ -2,92 +2,62 @@
 
 Welcome to the Main Street code challenge. This repository includes a very basic Rails app used for assessment and testing purposes only.
 
-## The Main Street Pitch (Context)
+## Context
 
 [Our website](https://www.getmainstreet.com/) provides a reasonable overview of the Main Street Pitch.
 
 Main Street is a platform that helps entrepreneurs start and run their companies in the service industry. For now it's Painting, but in the future we hope to address many other services such as Lawncare, Pest Control, Plumbing, Electrical etc.
 
-This codebase provides a small sample of the kinds of technology and problems we are solving.
+This bare-bones app represents a small piece of Main Street's core platform. Included is a scaffold for one model, `Company`. The spirit of this code-challenge is to extend this app's functionality in interesting ways.
+
+If you navigate to `/companies`, you'll see a list of companies generated from running `bin/setup`. You can think of this as a sort of "admin" view. As an admin, you are able to view, create, and edit companies. There would be different roles in a production version of this app. For example, a `Company` might belong to an `Owner`.
 
 ## Getting Started
 
-Dependencies:
+```bash
+# For your convience, we have a setup script
+bin/setup
 
-- Rails 6 (Framework)
-- Postgres (For Database)
-- Node (For Webpacker / Rails Dependencies)
+# Start your Rails server
+rails server
 
-This repository has a `bin/setup` script that should get things up and running for the majority of users if you have the above dependencies installed.
+# In a separate tab
+bin/webpack-dev-server
+```
 
-From the root of the project directory - simply run:
+## Tasks
 
-`bin/setup`
+### 1. Display an Association
 
-Once that runs you should be able to run the following 2 commands in separate terminal tabs / windows:
+Come up with an association for the `Company` model. For example, companies often have many _customers_.
 
-1.  `rails s` - this will start the rails server locally.
-2.  `bin/webpack-dev-server` - this will start to watch and recompile the JavaScripts found in `app/javascript`
+Once you have decided on your association, display this data in an interesting way.
 
-## Challenges
+**Categories: data modeling, Rails best practices**
 
-### **Challenge Steps**
+### 2. JavaScript Interactivity
 
-Please refer to our [Engineering Wiki](https://www.notion.so/getmainstreet/Engineering-Wiki-92df623daaeb4022892d331feb20aadf) for our best practices and recommended approaches.
+Aside from the Turbolinks magic, the current app has very little JavaScript added to it. On the `Company#show` page, the user is able to copy and paste the phone number in the "Contact" section. Use JavaScript to add more interactivity to the page. Fulfilling this requirement might overlap with the UI added from the first task.
 
-You can also feel free to look at [past PR's](https://github.com/main-street/code-challenge/pulls) for how other developers have solved some of these challenges. Although keep in mind, you'll need to be able to explain your submission and talk through your choices.
+**Categories: JavaScript**
 
-### **☐ Add a way to delete companies**
+### 3. Create an Issue
 
-For companies, there isn't currently a way to destroy them. There should be a confirmation of the action. Some kind of "Are you sure?" message.
+Create a new markdown file at the root of this directory named `ISSUE.md`. Write up an issue as if you were a technical lead and needed to delegate a piece of work to another engineer on your team.
 
-_Assessing: Basic Rails Knowledge and established best practices._
+The issue itself can be anything you want. Maybe you want to extend this app in a certain way by adding a third party library; maybe you want to write up a ticket for replacing MiniTest with RSpec. Be clear and provide as much context as you normally would.
 
-### **☐ Add Custom Validation to company email**
+**Categories: Communication**
 
-(When Present) All email addresses for new companies should only be a `@getmainstreet.com` domain. A custom error should render when attempting to create or update a company when the email does not match this domain. This should only be when email is present. Blank emails can be ignored. Should validate on both front end and back end.
+## Tips
 
-_Assessing: Basic Rails Knowledge and established best practices._
-
-### **☐ Add City State To Companies from Zip Code**
-
-For each company "Show" page there is a placeholder for the **City, State** for that company. You'll need to leverage the zip code to have that value render the actual **City, State**. For example: **Nashville, TN** You might want to take a look at the [ZipCodes gem](https://github.com/monterail/zip-codes) that is already in this project.
-
-Every time the company's zip code is updated this city and state should be updated.
-
-The City and State should be added as attributes to the Company object.
-
-_Assessing: Back end skills. Ability to implement more back-end heavy, basic business logic in the context of rails while leveraging established Gems / Libraries._
-
-### **☐ Include a way to set a brand color**
-
-Companies should be able to pick or enter a color and have that color render on the company show page. Ideally, this interface should feel responsive and interactive in some way.
-
-_Assessing: Front end skills. Basic UX and UI Instinct. Ability to leverage CSS / HTML / JavaScript to build an engaging and reactive UI._
-
-### **☐ Include test coverage for all your changes**
-
-For all functionality extend or add tests from existing tests.
-
-_Assessing: Ability to produce clean tests and documentation for code._
-
-### **☐ Suggest a new task for this challenge**
-
-Write up a proposed challenge to add to this repository for assessing developers. Do not solve the code challenge. Just write the task, and why this would make a good challenge to include for future developers.
-
-_Assessing: Engineering instinct, writing, ability to document up a deliverable concisely._
-
-## Bonus Points
-
-- Clean code that follows strong Rails Conventions
-- Originality and creativity in given solutions
-- Improving the overall UX of this challenge
-- Deploying your solutions to a server
-
+- Submit your PR as you would in a professional environment
+- Keep your commit history and your diffs clean
+- Write tests where it makes sense
 
 ## How do I submit a Pull Request?
 
-Since this a public repository, submitting a Pull Request will not be the same as when you're a collaborator. The instructions below will help you push the changes to the code challenge repo.
+Since this a public repository, submitting a Pull Request will not be the same as when you're a collaborator. The instructions below will help you push the changes to the repo.
 
 - Fork the project to your personal Github.
 - Clone the challenge to your local from your new forked repo in your personal git account.
@@ -120,9 +90,3 @@ Since this a public repository, submitting a Pull Request will not be the same a
 
 - You can now go to Github, and submit a PR with necessary details.
 - Happy Coding! Please don't hesitate to shoot an email to the recruitment team if you have any issues while pushing the code.
-
-## Tips
-
-- Submit code as you would in a professional environment.
-- Keep your diffs clean. If your code editor autoformats on save, consider turning this off for this repo.
-- If you choose to set up `RSpec` (or add other external libs), consider isolating those changes in a separate commit.
