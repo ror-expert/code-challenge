@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <h3>Company</h3>
+  <div class="row">
+    <div class="col">
+      <%= link_to "< Customers", company_customers_path(@company) %>
+    </div>
+    <div class="col text-right">
+      <%= link_to "Edit", edit_company_customer_path(@company, @customer) %>
+    </div>
+  </div>
+  <div class="bg-success">
+    <div class="container p-5 text-white">
+      <h1><%= @customer.id %></h1>
+    </div>
+  </div>
+
+  <div class="row bg-light">
+    <div class="col-12 col-lg-8 p-lg-5 pt-4">
+      <%= @customer.first_name %> |
+      <%= @customer.last_name %> | 
+      <%= @customer.email %>
+    </div>
+    <div class="col-12 col-lg-4 pt-lg-5">
+    </div>
+  </div>
+
+  <div class="bg-success text-white text-center py-3">
+    <p class="lead"><%= @company.phone %> — <%= @company.email %></p>
+  </div>
+</div>

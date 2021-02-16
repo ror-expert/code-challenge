@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <h3>Customer</h3>
+  <%= link_to "< Company", company_path(@company) %><br>
+  <%= link_to "+ Create a Customer", new_company_customer_path(@company) %><br>
+  <% if @customers.empty? %>
+    <p>No Customer Found</p>
+  <% else %>
+    <ul class="list-group my-5">
+      <% @customers.each do |customer| %>
+        <a href="<%= company_customer_path(@company, customer) %>" class="list-group-item list-group-item-action">
+          <%= customer.email %>
+        </a>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

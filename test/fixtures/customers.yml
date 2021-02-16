@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+test_one:
+  company: hometown_painting
+  first_name: test
+  last_name: 1
+  email: test1@mail.com
+
+test_two:
+  company: wolf_painting
+  first_name: test
+  last_name: 2
+  email: test2@mail.com
